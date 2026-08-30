@@ -6,12 +6,20 @@ services:
     startCommand: python bot.py
     envVars:
       - key: TELEGRAM_BOT_TOKEN
-        value: "YOUR_BOT_TOKEN_HERE"
+        value: "YOUR_BOT_TOKEN_HERE"  # ← Замени
       - key: TELEGRAM_CHAT_ID
-        value: "YOUR_CHAT_ID_HERE"
+        value: "YOUR_CHAT_ID_HERE"   # ← Замени
+      - key: TOKEN_ID
+        value: "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJKNTJtaWtoSDhPb0htRy1sSHV3UXB4d0ljblNSWGlhQk1tTVRHc1Bqdkk4In0..."  # ← Замени
+      - key: JSESSIONID
+        value: "01B284B31A218429677018FE9EC409A8"  # ← Замени
       - key: ORGANIZATION_ID
         value: "b4b36a53-d253-4840-9000-49061d74bf50"
       - key: TASK_ID
-        value: "1269319"
+        value: "1361446"
       - key: CHECK_INTERVAL
+        value: "30"
+      - key: DAYS_BACK
+        value: "7"
+      - key: DAYS_FORWARD
         value: "30"

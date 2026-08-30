@@ -23,7 +23,7 @@ class Config:
     JSESSIONID = os.getenv("JSESSIONID", "")
     
     # Настройки проекта
-    TASK_ID = os.getenv("TASK_ID", "1269319")
+    TASK_ID = os.getenv("TASK_ID", "1361446")
     CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL", "30"))
     DAYS_BACK = int(os.getenv("DAYS_BACK", "7"))
     DAYS_FORWARD = int(os.getenv("DAYS_FORWARD", "30"))
