@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: slot-monitor-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        value: "YOUR_BOT_TOKEN_HERE"
+      - key: TELEGRAM_CHAT_ID
+        value: "YOUR_CHAT_ID_HERE"
+      - key: ORGANIZATION_ID
+        value: "b4b36a53-d253-4840-9000-49061d74bf50"
+      - key: TASK_ID
+        value: "1269319"
+      - key: CHECK_INTERVAL
+        value: "30"
