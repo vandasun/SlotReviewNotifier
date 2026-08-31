@@ -1,0 +1,12 @@
+.git
+.idea
+.mvn
+target
+*.md
+__pycache__
+*.pyc
+.venv
+.env
+bot.py
+wsgi.py
+requirements.txt
