@@ -63,14 +63,20 @@ public class SlotMonitorService implements SchedulingConfigurer {
 
         telegramService.sendStartupMessage();
 
-        log.info("Testing API connection...");
-        Optional<SlotResponse> test = schoolApiService.getSlots();
-        if (test.isEmpty()) {
-            log.error("API test failed! Check TOKEN_ID and JSESSIONID");
+        if (!properties.hasSchoolAuth()) {
+            log.error("TOKEN_ID or JSESSIONID is empty — monitoring will keep retrying, /ping stays available");
             telegramService.sendErrorNotification(
-                    "API test failed on startup!\nCheck TOKEN_ID and JSESSIONID in Environment Variables");
+                    "Java bot started without school cookies.\nSet TOKEN_ID and JSESSIONID on this Render service (copy them from the Python service).");
         } else {
-            log.info("API test successful! Found {} slots", test.get().getStudentSlots().size());
+            log.info("Testing API connection...");
+            Optional<SlotResponse> test = schoolApiService.getSlots();
+            if (test.isEmpty()) {
+                log.error("API test failed! Check TOKEN_ID and JSESSIONID");
+                telegramService.sendErrorNotification(
+                        "API test failed on startup!\nCheck TOKEN_ID and JSESSIONID in Environment Variables");
+            } else {
+                log.info("API test successful! Found {} slots", test.get().getStudentSlots().size());
+            }
         }
 
         monitoring = true;

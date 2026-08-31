@@ -12,8 +12,8 @@ app:
   school:
     graphql-url: https://platform.21-school.ru/services/graphql
     organization-id: ${ORGANIZATION_ID:b4b36a53-d253-4840-9000-49061d74bf50}
-    token-id: ${TOKEN_ID:}
-    jsessionid: ${JSESSIONID:}
+    token-id: ${TOKEN_ID:${SCHOOL_TOKEN_ID:}}
+    jsessionid: ${JSESSIONID:${SCHOOL_JSESSIONID:}}
     task-id: ${TASK_ID:1361446}
   monitor:
     check-interval: ${CHECK_INTERVAL:30000}

@@ -79,6 +79,10 @@ public class SchoolApiService {
     public Optional<SlotResponse> getSlots(String taskId) {
         AppProperties.School school = properties.getSchool();
         AppProperties.Monitor monitor = properties.getMonitor();
+        if (!properties.hasSchoolAuth()) {
+            log.error("Cannot call school API: TOKEN_ID or JSESSIONID is empty");
+            return Optional.empty();
+        }
 
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
         String from = now.minusDays(monitor.getDaysBack()).format(FROM_FORMAT);
